@@ -1,4 +1,5 @@
 import { ProductCard } from '@/components/ProductCard';
+import Redes from '@/components/Redes'
 import { db } from '@/lib/supabase';
 import type { Product, Category } from '@/lib/supabase';
 import type { Metadata } from 'next';
@@ -37,6 +38,7 @@ export default async function ProductsPage() {
             Encuentra las mejores cuentas premium de streaming al mejor precio del mercado
           </p>
         </div>
+        <Redes />
       </section>
 
       {/* Categories */}

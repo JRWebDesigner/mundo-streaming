@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { PromotionsSlider } from '@/components/PromotionsSlider';
 import { ProductCard } from '@/components/ProductCard';
+import Redes from '@/components/Redes'
 import { Button } from '@/components/ui/button';
 import { db } from '@/lib/supabase';
 import type { Promotion, Product } from '@/lib/supabase';
@@ -37,9 +38,6 @@ export default async function Home() {
             <p className="text-xl md:text-2xl text-gray-950 max-w-3xl mx-auto mb-8">
               Las mejores cuentas <span className="text-blue-800 font-semibold">premium de streaming</span> con entrega inmediata y soporte 24/7
             </p>
-            <div className="w-full flex gap-4 justify-center items-center flex-wrap">
-                        
-            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-gradient-to-r from-blue-900 to-blue-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full px-8">
                 <Link href="/productos" className="flex items-center gap-2">
@@ -52,6 +50,7 @@ export default async function Home() {
               </Button>
             </div>
           </div>
+          <Redes />
         </div>
       </section>
 
