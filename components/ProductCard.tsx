@@ -1,6 +1,6 @@
 'use client';
 
-import { Check, ShoppingCart } from 'lucide-react';
+import { Check, ShoppingCart, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import type { Product } from '@/lib/supabase';
@@ -19,14 +19,17 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <Card className="group relative overflow-hidden border-blue-900/20 bg-white hover:shadow-xl transition-all duration-300">
-      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-600 to-blue-400">
+    <Card className="group relative overflow-hidden border-purple-500/30 bg-gradient-to-br from-slate-800 to-slate-900 hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20 backdrop-blur">
+      {/* Glow effect on hover */}
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/0 to-blue-600/0 group-hover:from-blue-600/10 group-hover:via-blue-600/5 group-hover:to-blue-600/10 transition-all duration-500" />
+      
+      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-600 to-purple-600">
         {product.image_url && (
           <div
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-110"
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
             style={{ backgroundImage: `url(${product.image_url})` }}
           >
-            <div className="absolute inset-0 bg-blue-900/40" />
+            <div className="absolute inset-0 bg-blue-900/50 group-hover:bg-blue-900/30 transition-all duration-500" />
           </div>
         )}
         <div className="relative flex h-full items-center justify-center">
@@ -35,28 +38,29 @@ export function ProductCard({ product }: ProductCardProps) {
           </h3>
         </div>
         {product.is_featured && (
-          <div className="absolute top-4 right-4 rounded-full bg-yellow-400 px-3 py-1 text-xs font-bold text-blue-900">
+          <div className="absolute top-4 right-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 px-3 py-1 text-xs font-bold text-slate-900 shadow-lg animate-pulse flex items-center gap-1">
+            <Sparkles className="h-3 w-3" />
             Destacado
           </div>
         )}
       </div>
 
-      <div className="p-6 space-y-4">
-        <p className="text-sm text-gray-600 line-clamp-2">{product.description}</p>
+      <div className="relative p-6 space-y-4">
+        <p className="text-sm text-gray-400 line-clamp-2">{product.description}</p>
 
         <div className="space-y-2">
           {product.features && product.features.map((feature, index) => (
-            <div key={index} className="flex items-center space-x-2 text-sm text-gray-700">
-              <Check className="h-4 w-4 text-blue-600 flex-shrink-0" />
+            <div key={index} className="flex items-center space-x-2 text-sm text-gray-300">
+              <Check className="h-4 w-4 text-purple-400 flex-shrink-0" />
               <span>{feature}</span>
             </div>
           ))}
         </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+        <div className="flex items-center justify-between pt-4 border-t border-purple-500/20">
           <div>
             <p className="text-sm text-gray-500">Precio</p>
-            <p className="text-3xl font-bold text-blue-900">
+            <p className="text-3xl font-bold bg-gradient-to-r text-white bg-clip-text text-transparent">
               {product.price}Bs.
             </p>
             <p className="text-sm text-gray-500">{product.duration}</p>
@@ -65,7 +69,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         <Button
           onClick={handleWhatsAppClick}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 rounded-lg font-semibold"
           size="lg"
         >
           <ShoppingCart className="mr-2 h-5 w-5" />
@@ -73,8 +77,8 @@ export function ProductCard({ product }: ProductCardProps) {
         </Button>
 
         {product.stock > 0 && product.stock < 10 && (
-          <p className="text-xs text-center text-orange-600 font-medium">
-            ¡Solo quedan {product.stock} disponibles!
+          <p className="text-xs text-center text-orange-400 font-medium bg-orange-400/10 py-2 rounded-lg">
+            ⚡ ¡Solo quedan {product.stock} disponibles!
           </p>
         )}
       </div>

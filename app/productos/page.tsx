@@ -27,36 +27,46 @@ export default async function ProductsPage() {
   ]);
 
   return (
-    <div className="container mx-auto px-4 py-12 space-y-12">
-      <div className="text-center space-y-4">
-        <h1 className="text-4xl font-bold text-blue-900 md:text-5xl">
-          Nuestros Productos
-        </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          Encuentra las mejores cuentas premium de streaming al mejor precio del mercado
-        </p>
-      </div>
+    <div className="container mx-auto px-4 py-12 space-y-7">
+      <section className="rounded-3xl bg-[url(/banner2.png)] bg-cover bg-center bg-norepeat w-full h-auto p-10">
+        <div className="text-center space-y-4">
+          <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-500 to-blue-500 bg-clip-text text-transparent">
+            Nuestros Productos
+          </h1>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Encuentra las mejores cuentas premium de streaming al mejor precio del mercado
+          </p>
+        </div>
+      </section>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        {categories.map((category) => (
-          <div
-            key={category.id}
-            className="flex flex-col items-center p-6 rounded-xl border border-blue-900/20 bg-white hover:shadow-lg transition-all cursor-pointer group"
-          >
-            <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-600 to-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-              <span className="text-2xl font-bold text-white">
-                {category.name.charAt(0)}
-              </span>
-            </div>
-            <h3 className="font-semibold text-blue-900 text-center">
-              {category.name}
-            </h3>
-          </div>
-        ))}
-      </div>
-
+      {/* Categories */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">
+        <h2 className="text-2xl font-bold text-white mb-6">Categorías</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {categories.map((category) => (
+            <div
+              key={category.id}
+              className="group relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-blue-900/40 to-blue-600/40 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 cursor-pointer"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-purple-600/0 group-hover:from-blue-600/10 group-hover:to-purple-600/10 transition-all duration-300" />
+              <div className="relative z-10 flex flex-col items-center">
+                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg group-hover:shadow-purple-500/50">
+                  <span className="text-2xl font-bold text-white">
+                    {category.name.charAt(0)}
+                  </span>
+                </div>
+                <h3 className="font-semibold text-white text-center">
+                  {category.name}
+                </h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* All Products */}
+      <div>
+        <h2 className="text-3xl font-bold text-white mb-8">
           Todos los Productos
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -67,26 +77,30 @@ export default async function ProductsPage() {
 
         {products.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">
+            <p className="text-gray-400 text-lg">
               No hay productos disponibles en este momento.
             </p>
           </div>
         )}
       </div>
 
-      <section className="bg-blue-900 rounded-2xl p-8 md:p-12 text-center">
-        <h2 className="text-3xl font-bold text-white mb-4">
-          ¿No encuentras lo que buscas?
-        </h2>
-        <p className="text-xl text-blue-100 mb-6">
+      {/* CTA Section */}
+      <section className="relative overflow-hidden rounded-3xl p-12 md:p-16 bg-[url(/banner2.png)] bg-cover bg-center bg-norepeat border border-purple-500/30">
+        
+        <div className="relative z-10 text-center space-y-6">
+          <h2 className="text-4xl font-bold text-white">
+            ¿No encuentras lo que buscas?
+          </h2>
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto">
           Contáctanos y te ayudaremos a encontrar la cuenta perfecta para ti
         </p>
         <a
           href="/contacto"
-          className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-lg font-semibold text-blue-900 hover:bg-gray-100 transition-colors"
+          className="inline-flex items-center justify-center rounded-full bg-white text-blue-900 hover:bg-gray-100 transition-colors px-8 py-3 text-lg font-semibold"
         >
           Contactar Ahora
         </a>
+        </div>
       </section>
     </div>
   );
