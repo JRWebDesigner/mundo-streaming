@@ -11,7 +11,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const handleWhatsAppClick = () => {
-    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '5491234567890';
+    const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '59169705031';
     const message = encodeURIComponent(
       `Hola! Estoy interesado en: ${product.name}\nPrecio: ${product.price}Bs. \nDuración: ${product.duration}`
     );
