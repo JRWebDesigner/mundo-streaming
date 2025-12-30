@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { PromotionsSlider } from '@/components/PromotionsSlider';
 import { ProductCard } from '@/components/ProductCard';
 import { Button } from '@/components/ui/button';
-import { supabase } from '@/lib/supabase';
+import { db } from '@/lib/supabase';
 import type { Promotion, Product } from '@/lib/supabase';
 import { Sparkles, Shield, Zap, HeadphonesIcon } from 'lucide-react';
 
@@ -10,34 +10,11 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 60;
 
 async function getPromotions(): Promise<Promotion[]> {
-  const { data, error } = await supabase
-    .from('promotions')
-    .select('*')
-    .eq('is_active', true)
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('Error fetching promotions:', error);
-    return [];
-  }
-
-  return data || [];
+  return db.getPromotions();
 }
 
 async function getFeaturedProducts(): Promise<Product[]> {
-  const { data, error } = await supabase
-    .from('products')
-    .select('*, categories(*)')
-    .eq('is_featured', true)
-    .order('created_at', { ascending: false })
-    .limit(6);
-
-  if (error) {
-    console.error('Error fetching products:', error);
-    return [];
-  }
-
-  return data || [];
+  return db.getFeaturedProducts(6);
 }
 
 export default async function Home() {

@@ -1,5 +1,5 @@
 import { ProductCard } from '@/components/ProductCard';
-import { supabase } from '@/lib/supabase';
+import { db } from '@/lib/supabase';
 import type { Product, Category } from '@/lib/supabase';
 import type { Metadata } from 'next';
 
@@ -13,32 +13,11 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 60;
 
 async function getCategories(): Promise<Category[]> {
-  const { data, error } = await supabase
-    .from('categories')
-    .select('*')
-    .order('name');
-
-  if (error) {
-    console.error('Error fetching categories:', error);
-    return [];
-  }
-
-  return data || [];
+  return db.getCategories();
 }
 
 async function getProducts(): Promise<Product[]> {
-  const { data, error } = await supabase
-    .from('products')
-    .select('*, categories(*)')
-    .order('is_featured', { ascending: false })
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('Error fetching products:', error);
-    return [];
-  }
-
-  return data || [];
+  return db.getProducts();
 }
 
 export default async function ProductsPage() {

@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cat-1",
+    "name": "Netflix",
+    "description": "Acceso a Netflix con la mejor calidad de streaming",
+    "icon_url": "/icons/netflix.svg",
+    "created_at": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cat-2",
+    "name": "HBO Max",
+    "description": "Películas y series exclusivas de HBO",
+    "icon_url": "/icons/hbomax.svg",
+    "created_at": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cat-3",
+    "name": "Disney+",
+    "description": "Contenido familiar de Disney",
+    "icon_url": "/icons/disney.svg",
+    "created_at": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cat-4",
+    "name": "Prime Video",
+    "description": "Películas y series de Amazon Prime",
+    "icon_url": "/icons/prime.svg",
+    "created_at": "2025-01-01T00:00:00Z"
+  },
+  {
+    "id": "cat-5",
+    "name": "Flujo TV",
+    "description": "Entretenimiento local argentino",
+    "icon_url": "/icons/flujo.svg",
+    "created_at": "2025-01-01T00:00:00Z"
+  }
+]

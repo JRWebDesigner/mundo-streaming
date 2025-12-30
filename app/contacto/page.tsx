@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card } from '@/components/ui/card';
-import { supabase } from '@/lib/supabase';
 import { toast } from 'sonner';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -24,11 +23,15 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('contact_messages')
-        .insert([formData]);
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      if (error) throw error;
+      if (!response.ok) throw new Error('Error al enviar el mensaje');
 
       toast.success('Mensaje enviado exitosamente', {
         description: 'Nos pondremos en contacto contigo pronto.',
