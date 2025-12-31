@@ -21,7 +21,7 @@ export const productType = defineType({
       name: 'category',
       title: 'Categoría',
       type: 'reference',
-      to: [{ type: 'category' }],
+      to: { type: 'category' },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
