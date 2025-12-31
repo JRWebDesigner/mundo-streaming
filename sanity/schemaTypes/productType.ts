@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import {defineType, defineField, defineArrayMember} from 'sanity'
 
 export const productType = defineType({
   name: 'product',
