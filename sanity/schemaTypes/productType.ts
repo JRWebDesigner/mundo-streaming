@@ -1,5 +1,5 @@
 // productType.ts - Versión compatible
-export default {
+export const productType = {
   name: 'product',
   title: 'Producto',
   type: 'document',
