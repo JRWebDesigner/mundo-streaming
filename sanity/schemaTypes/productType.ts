@@ -22,7 +22,7 @@ export const productType = defineType({
       title: 'Categoría',
       type: 'reference',
       options: {
-        to: [{ type: 'category' }] // ✅ Corregido
+        to: [{ type: 'category' }]
       },
       validation: (Rule) => Rule.required(),
     }),
@@ -43,11 +43,7 @@ export const productType = defineType({
       name: 'features',
       title: 'Características',
       type: 'array',
-      of: [
-        defineField({
-          type: 'string',
-        }),
-      ],
+      of: [{ type: 'string' }], // ✅ Corregido
       description: 'Lista de características del producto',
     }),
     defineField({
