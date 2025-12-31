@@ -78,7 +78,7 @@ export const productType = defineType({
       const { title, subtitle } = selection
       return {
         title,
-        subtitle: `$${subtitle}`,
+        subtitle: `${subtitle}Bs`,
       }
     },
   },
