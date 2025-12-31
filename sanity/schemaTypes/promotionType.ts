@@ -30,8 +30,7 @@ export const promotionType = defineType({
       name: 'discount_percentage',
       title: 'Porcentaje de Descuento',
       type: 'number',
-      validation: (Rule) => Rule.required().min(0).max(100),
-      description: 'Porcentaje de descuento (0-100)',
+      description: 'Porcentaje de descuento 0-100 (OPCIONAL)',
     }),
     defineField({
       name: 'is_active',

@@ -46,12 +46,7 @@ export type Promotion = {
   id?: string
   title: string
   description: string
-  image_url?: {
-    asset: {
-      _ref: string
-      _type: 'reference'
-    }
-  }
+  image?: string
   discount_percentage: number
   is_active: boolean
   start_date: string
@@ -135,7 +130,7 @@ export const db = {
       _id,
       title,
       description,
-      image,
+      "image": image.asset->url,
       discount_percentage,
       is_active,
       start_date,

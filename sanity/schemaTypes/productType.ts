@@ -34,7 +34,6 @@ export const productType = {
       title: 'Duración',
       type: 'string',
       description: 'Ej: 1 mes, 3 meses, 1 año',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'features',
@@ -47,7 +46,6 @@ export const productType = {
       name: 'stock',
       title: 'Stock Disponible',
       type: 'number',
-      validation: (Rule) => Rule.required().min(0),
     },
     {
       name: 'is_featured',

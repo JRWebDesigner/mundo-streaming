@@ -12,12 +12,6 @@ export const categoryType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'description',
-      title: 'Descripción',
-      type: 'text',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'icon',
       title: 'Icono de la Categoría',
       type: 'image',

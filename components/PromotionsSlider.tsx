@@ -47,7 +47,7 @@ export function PromotionsSlider({ promotions }: PromotionsSliderProps) {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${promotion.image_url})`,
+                backgroundImage: `url(${promotion.image})`,
               }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#0A1929]/95 to-[#0A1929]/70" />
