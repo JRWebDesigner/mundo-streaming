@@ -56,7 +56,7 @@
     "next-themes": "^0.3.0",
     "postcss": "8.4.30",
 
-    
+    "@sanity/types": "^3.48.0",
     "@portabletext/react": "^4.0.3",
     "@sanity/client": "^7.10.0",
     "@sanity/icons": "^3.7.4",
