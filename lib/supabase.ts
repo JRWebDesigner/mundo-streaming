@@ -77,7 +77,7 @@ export const db = {
   // Métodos para Categories
   async getCategories(): Promise<Category[]> {
     const query = `*[_type == "category"] | order(_createdAt desc) {
-      id,
+      _id,
       name,
       description,
       icon_url,
@@ -89,7 +89,7 @@ export const db = {
   // Métodos para Products
   async getProducts(): Promise<Product[]> {
     const query = `*[_type == "product"] | order(is_featured desc, _createdAt desc) {
-      id,
+      _id,
       name,
       description,
       category->,
@@ -106,9 +106,9 @@ export const db = {
   },
 
   async getFeaturedProducts(limit?: number): Promise<Product[]> {
-    const limitClause = limit ? ` | [0...${limit}]` : ''
-    const query = `*[_type == "product" && is_featured == true] | order(_createdAt desc)${limitClause} {
-      id,
+    const limitClause = limit ? `[0...${limit}]` : ''
+    const query = `*[_type == "product" && is_featured == true] | order(_createdAt desc) {
+      _id,
       name,
       description,
       category->,
@@ -120,14 +120,14 @@ export const db = {
       image,
       _createdAt,
       _updatedAt
-    }`
+    }${limitClause}`
     return client.fetch(query)
   },
 
   // Métodos para Promotions
   async getPromotions(): Promise<Promotion[]> {
     const query = `*[_type == "promotion" && is_active == true] | order(_createdAt desc) {
-      id,
+      _id,
       title,
       description,
       image,
@@ -143,7 +143,7 @@ export const db = {
   // Métodos para Contact Messages
   async getContactMessages(): Promise<ContactMessage[]> {
     const query = `*[_type == "contactMessage"] | order(_createdAt desc) {
-      id,
+      _id,
       name,
       email,
       phone,
