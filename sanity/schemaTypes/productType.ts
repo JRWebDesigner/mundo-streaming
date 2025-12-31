@@ -1,4 +1,4 @@
-import {defineType, defineField, defineArrayMember} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const productType = defineType({
   name: 'product',
@@ -43,7 +43,8 @@ export const productType = defineType({
       name: 'features',
       title: 'Características',
       type: 'array',
-      of: [defineArrayMember({ type: 'string'})]
+      of: [{ type: 'string' }],
+      description: 'Lista de características del producto',
     }),
     defineField({
       name: 'stock',
