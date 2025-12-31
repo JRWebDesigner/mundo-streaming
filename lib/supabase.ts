@@ -41,7 +41,7 @@ export type Promotion = {
   id?: string
   title: string
   description: string
-  image?: {
+  image_url?: {
     asset: {
       _ref: string
       _type: 'reference'
