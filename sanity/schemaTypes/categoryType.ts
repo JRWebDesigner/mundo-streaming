@@ -20,10 +20,13 @@ export const categoryType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'icon_url',
-      title: 'URL del Icono',
-      type: 'url',
-      description: 'URL del icono de la categoría (ej: /icons/netflix.svg)',
+      name: 'icon',
+      title: 'Icono de la Categoría',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+      description: 'Imagen del icono de la categoría',
       validation: (Rule) => Rule.required(),
     }),
   ],
@@ -31,6 +34,7 @@ export const categoryType = defineType({
     select: {
       title: 'name',
       subtitle: 'description',
+      media: 'icon',
     },
   },
 })

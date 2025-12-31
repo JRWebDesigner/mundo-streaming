@@ -1,6 +1,6 @@
 import { ProductCard } from '@/components/ProductCard';
 import Redes from '@/components/Redes'
-import { db } from '@/lib/supabase';
+import { db, urlFor } from '@/lib/supabase';
 import type { Product, Category } from '@/lib/supabase';
 import type { Metadata } from 'next';
 
@@ -45,24 +45,35 @@ export default async function ProductsPage() {
       <div>
         <h2 className="text-2xl font-bold text-white mb-6">Categorías</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className="group relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-blue-900/40 to-blue-600/40 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 cursor-pointer"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-purple-600/0 group-hover:from-blue-600/10 group-hover:to-purple-600/10 transition-all duration-300" />
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg group-hover:shadow-purple-500/50">
-                  <span className="text-2xl font-bold text-white">
-                    {category.name.charAt(0)}
-                  </span>
+          {categories.map((category) => {
+            const iconUrl = category.icon ? urlFor(category.icon).width(100).height(100).url() : null;
+            return (
+              <div
+                key={category._id}
+                className="group relative overflow-hidden rounded-2xl p-6 bg-gradient-to-br from-blue-900/40 to-blue-600/40 border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-purple-600/0 group-hover:from-blue-600/10 group-hover:to-purple-600/10 transition-all duration-300" />
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 group-hover:shadow-lg group-hover:shadow-purple-500/50 overflow-hidden">
+                    {iconUrl ? (
+                      <img 
+                        src={iconUrl} 
+                        alt={category.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-2xl font-bold text-white">
+                        {category.name.charAt(0)}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-semibold text-white text-center">
+                    {category.name}
+                  </h3>
                 </div>
-                <h3 className="font-semibold text-white text-center">
-                  {category.name}
-                </h3>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 

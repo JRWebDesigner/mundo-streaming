@@ -64,7 +64,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <div>
             <p className="text-sm text-gray-500">Precio</p>
             <p className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              ${product.price}
+              {product.price}Bs
             </p>
             <p className="text-sm text-gray-500">{product.duration}</p>
           </div>

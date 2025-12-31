@@ -6,10 +6,15 @@ export { urlFor }
 
 // Tipos de datos
 export type Category = {
-  id?: string
+  _id?: string
   name: string
   description: string
-  icon_url: string
+  icon?: {
+    asset: {
+      _ref: string
+      _type: 'reference'
+    }
+  }
   _createdAt?: string
 }
 
@@ -80,7 +85,7 @@ export const db = {
       _id,
       name,
       description,
-      icon_url,
+      icon,
       _createdAt
     }`
     return client.fetch(query)

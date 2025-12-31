@@ -1,9 +1,11 @@
+import { ShoppingCartIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export const productType = defineType({
   name: 'product',
   title: 'Producto',
   type: 'document',
+  icon: ShoppingCartIcon,
   fields: [
     defineField({
       name: 'name',
@@ -18,6 +20,13 @@ export const productType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'category',
+      title: 'Categoría',
+      type: 'reference',
+      to: [{ type: 'category' }],
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'price',
       title: 'Precio',
       type: 'number',
@@ -29,6 +38,17 @@ export const productType = defineType({
       type: 'string',
       description: 'Ej: 1 mes, 3 meses, 1 año',
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'features',
+      title: 'Características',
+      type: 'array',
+      of: [
+        defineField({
+          type: 'string',
+        }),
+      ],
+      description: 'Lista de características del producto',
     }),
     defineField({
       name: 'stock',
