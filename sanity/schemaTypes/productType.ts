@@ -31,17 +31,6 @@ export const productType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'features',
-      title: 'Características',
-      type: 'array',
-      of: [
-        {
-          type: 'string',
-        },
-      ],
-      description: 'Lista de características del producto',
-    }),
-    defineField({
       name: 'stock',
       title: 'Stock Disponible',
       type: 'number',
