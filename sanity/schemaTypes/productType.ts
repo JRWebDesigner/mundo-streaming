@@ -43,7 +43,7 @@ export const productType = defineType({
       name: 'features',
       title: 'Características',
       type: 'array',
-      of: [{ type: 'string' }], // ✅ Corregido
+      of: [defineArrayMember({ type: 'string'})], // ✅ Corregido
       description: 'Lista de características del producto',
     }),
     defineField({
