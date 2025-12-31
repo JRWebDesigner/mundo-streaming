@@ -9,54 +9,52 @@ export const productType = defineType({
       name: 'name',
       title: 'Nombre del Producto',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'description',
       title: 'Descripción',
       type: 'text',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required()
     }),
     defineField({
-      name: 'category',
+      name: 'categoria',
       title: 'Categoría',
       type: 'reference',
-      options: {
-        to: [{ type: 'category' }]
-      },
-      validation: (Rule) => Rule.required(),
+      to: [{ type: 'category' }],
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'price',
       title: 'Precio',
       type: 'number',
-      validation: (Rule) => Rule.required().min(0),
+      validation: (Rule) => Rule.required().min(0)
     }),
     defineField({
       name: 'duration',
       title: 'Duración',
       type: 'string',
       description: 'Ej: 1 mes, 3 meses, 1 año',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required()
     }),
     defineField({
       name: 'features',
       title: 'Características',
       type: 'array',
       of: [{ type: 'string' }],
-      description: 'Lista de características del producto',
+      description: 'Lista de características del producto'
     }),
     defineField({
       name: 'stock',
       title: 'Stock Disponible',
       type: 'number',
-      validation: (Rule) => Rule.required().min(0),
+      validation: (Rule) => Rule.required().min(0)
     }),
     defineField({
       name: 'is_featured',
       title: '¿Producto Destacado?',
       type: 'boolean',
-      initialValue: false,
+      initialValue: false
     }),
     defineField({
       name: 'image',
@@ -65,7 +63,7 @@ export const productType = defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required()
     }),
   ],
   preview: {
