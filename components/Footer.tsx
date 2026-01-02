@@ -8,12 +8,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-400">
-                <Tv className="h-6 w-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">
-                Mundo <span className="text-blue-400">Streaming</span>
-              </span>
+              <img src="favicon.jpg" className="w-[300px] h-auto" />
             </div>
             <p className="text-sm text-gray-400">
               Tu tienda de confianza para cuentas premium de streaming.
@@ -58,7 +53,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-blue-400" />
-                <span>info@mundostreaming.com</span>
+                <span>al432fer@gmail.com</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Phone className="h-4 w-4 text-blue-400" />

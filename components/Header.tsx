@@ -10,14 +10,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-blue-900/20 bg-[#0A1929]/95 backdrop-blur supports-[backdrop-filter]:bg-[#0A1929]/80">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+      <div className="container mx-auto flex h-24 md:h-28 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-400">
+          {/* <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-600 to-blue-400">
             <Tv className="h-6 w-6 text-white" />
           </div>
           <span className="text-xl font-bold text-white">
             Mundo <span className="text-blue-400">Streaming</span>
-          </span>
+          </span> */}
+          <img src="favicon.jpg" className="w-[75px] md:w-[100px] h-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
