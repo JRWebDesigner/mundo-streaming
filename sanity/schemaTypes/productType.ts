@@ -73,7 +73,7 @@ export const productType = {
       const { title, subtitle } = selection
       return {
         title,
-        subtitle: `$${subtitle}`,
+        subtitle: `${subtitle}Bs.`,
       }
     },
   },
